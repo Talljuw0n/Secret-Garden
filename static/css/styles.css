@@ -73,12 +73,23 @@ body {
 }
 
 .logo {
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--primary);
-    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    height: 50px !important;        /* Fixed height for navbar */
+    width: auto;
+    flex-shrink: 0;
+    overflow: hidden !important;    /* THIS IS CRITICAL - clips the overflow */
 }
+
+.site-logo {
+    height: 100% !important;        /* Fill container height */
+    width: auto !important;         /* Maintain aspect ratio */
+    max-height: 50px !important;
+    object-fit: contain !important;
+    display: block !important;
+}
+
+
 
 .nav-links {
     display: flex;
@@ -154,7 +165,8 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e8ba3 100%);
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                url('/static/images/background.jpeg') center/cover no-repeat;
     overflow: hidden;
 }
 
@@ -399,41 +411,31 @@ section {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    height: auto;
 }
 
 .visual-card {
     background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-    padding: 2rem;
+    padding: 0;  /* Remove padding for images */
     border-radius: 16px;
-    color: var(--white);
-    text-align: center;
+    overflow: hidden;  /* Add this */
     transition: transform 0.3s ease;
+    box-shadow: var(--shadow-md);
 }
 
 .visual-card:hover {
     transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
 }
 
-.icon-circle {
-    width: 80px;
-    height: 80px;
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1.5rem;
+.visual-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    min-height: 250px;  /* Adjust height as needed */
 }
 
-.visual-card h4 {
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.visual-card p {
-    opacity: 0.9;
-}
 
 /* Mission and Vision */
 .mission-vision {
@@ -608,10 +610,20 @@ section {
     position: relative;
     cursor: pointer;
     transition: transform 0.3s ease;
+    box-shadow: var(--shadow-md);
+    min-height: 200px;  /* Set minimum height */
 }
 
 .gallery-item:hover {
     transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .gallery-placeholder {
