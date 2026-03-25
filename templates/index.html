@@ -4,32 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Secret Garden</title>
-    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="../static/css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700;900&display=swap" rel="stylesheet">
-    <link rel="icon" href="/static/images/logo.jpeg" type="image/png">
-
+    <link rel="icon" href="../static/images/logo.jpeg" type="image/png">
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="navbar">
         <div class="container nav-container">
-            
             <div class="logo">
-                <a>
-                    <img src="/static/images/logo.jpeg" alt="Secret Gardens" class="site-logo">
+                <a href="index.html">
+                    <img src="../static/images/logo.jpeg" alt="Secret Gardens" class="site-logo">
                 </a>
                 <span><strong>Secret Garden</strong></span>
             </div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#mission">Mission</a></li>
-                <li><a href="#gallery">Gallery</a></li>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="leaders.html">Leaders</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="https://selar.com/m/thesecret-garden1" class="nav-cta" target="_blank">Register</a></li>
             </ul>
-            <button class="mobile-toggle" id="mobileToggle">
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -37,7 +34,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
@@ -49,13 +45,10 @@
                 </div>
             </div>
         </div>
-        <div class="scroll-indicator">
-            <span></span>
-        </div>
+        <div class="scroll-indicator"><span></span></div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about-section">
+    <section class="about-section">
         <div class="container">
             <div class="section-header">
                 <span class="section-label">About the Event</span>
@@ -64,58 +57,19 @@
             <div class="about-grid">
                 <div class="about-content">
                     <h3>What is The Secret Garden?</h3>
-                    <p>The Secret Garden Global (TSG), an interdenominational ministry with a global reach. TSG’s mandate is to equip believers to walk in true dominion and to make real disciples of Christ. This vision is expressed through key programs such as the Secret Garden Retreat, Flames, Power Night, and TSG Missions, which takes place across multiple locations including Nigeria, the United Kingdom, Ethiopia, the United States, Kenya, Uganda, and many other regions at various times throughout the year.
-                    Known as The Love Team, The Secret Garden Global is committed to nurturing the spiritual growth of believers, empowering them to live as God's ambassadors and to fulfil the One Billion Souls mandate by bringing spiritual restoration to the lost.</p>
-                    
-                    <h3>Purpose of the Gathering</h3>
-                    <p>The Secret Garden exists to cultivate women who know how to:</p>
-                    <ul class="custom-list">
-                        <li>War in prayer</li>
-                        <li>Stand in conviction</li>
-                        <li>Lead with wisdom</li>
-                        <li>Carry God's prescence with strength and grace</li>
-                    </ul>
-                    <p>We create environments where women are not entertained but they are equipped.</p>
-                    <ul class="custom-list">
-                        <li>Where weakness is strengthened</li>
-                        <li>Where identity is restored</li>
-                        <li>Where spiritual authority is activated</li>
-                    </ul>
-                    
-                    <h3>Who Should Attend?</h3>
-                    <ul class="custom-list">
-                        <li>Believers seeking spiritual renewal and deeper faith</li>
-                        <li>Ministers and church leaders looking for fresh inspiration</li>
-                        <li>Youth and young adults passionate about their faith journey</li>
-                        <li>Families desiring to grow together in spiritual unity</li>
-                        <li>Anyone hungry for a genuine encounter with God</li>
-                    </ul>
-                    
-                    <h3>What to Expect</h3>
-                    <ul class="custom-list">
-                        <li>Discipline in the secret place</li>
-                        <li>Spiritual intelligence</li>
-                        <li>Emotional healing and wholeness</li>
-                        <li>Kingdom alignment</li>
-                        <li>Expansion of capacity</li>
-                    </ul>
+                    <p>The Secret Garden Global (TSG), an interdenominational ministry with a global reach. TSG's mandate is to equip believers to walk in true dominion and to make real disciples of Christ. This vision is expressed through key programs such as the Secret Garden Retreat, Flames, Power Night, and TSG Missions, which takes place across multiple locations including Nigeria, the United Kingdom, Ethiopia, the United States, Kenya, Uganda, and many other regions at various times throughout the year.</p>
+                    <p>Known as The Love Team, The Secret Garden Global is committed to nurturing the spiritual growth of believers, empowering them to live as God's ambassadors and to fulfil the One Billion Souls mandate by bringing spiritual restoration to the lost.</p>
+                    <a href="about.html" class="cta-button" style="margin-top:1rem; display:inline-block;">Read More</a>
                 </div>
-                <div class="about-visual">
-                    <div class="visual-card">
-                        <img src="/static/images/fourth.jpg" alt="Community Gathering">
-                    </div>
-                    <div class="visual-card">
-                           <img src="/static/images/second.jpg" alt="Community Gathering">
-                    </div>
-                    <div class="visual-card">
-                           <img src="/static/images/third.jpg" alt="Worship Moment">
-                    </div>
-                </div>
+                <!-- <div class="about-visual">
+                    <div class="visual-card"><img src="../static/images/fourth.jpg" alt="Community Gathering"></div>
+                    <div class="visual-card"><img src="../static/images/second.jpg" alt="Community Gathering"></div>
+                    <div class="visual-card"><img src="../static/images/third.jpg" alt="Worship Moment"></div>
+                </div> -->
             </div>
         </div>
     </section>
 
-    <!-- Mission and Vision Section -->
     <section id="mission" class="mission-vision">
         <div class="container">
             <div class="mv-grid">
@@ -126,8 +80,7 @@
                         </svg>
                     </div>
                     <h3>Our Mission</h3>
-                    <p>To raise warring men and women who are grounded in truth, governed by wisdom, and uncompromising in faith.
-                    Women who understand spiritual authority and walk in it with humility and power.</p>
+                    <p>To raise warring men and women who are grounded in truth, governed by wisdom, and uncompromising in faith. Women who understand spiritual authority and walk in it with humility and power.</p>
                 </div>
                 <div class="mv-card vision-card">
                     <div class="mv-icon">
@@ -137,14 +90,12 @@
                         </svg>
                     </div>
                     <h3>Our Vision</h3>
-                    <p>To see a generation of women enlarged in strength, clarity, and influence. Women who build families, lead communities, shift atmospheres, and carry heaven’s agenda with boldness
-                    Formed in the secret place & revealed with authority.</p>
+                    <p>To see a generation of women enlarged in strength, clarity, and influence. Women who build families, lead communities, shift atmospheres, and carry heaven's agenda with boldness. Formed in the secret place &amp; revealed with authority.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Event Details Section -->
     <section id="details" class="event-details">
         <div class="container">
             <div class="section-header">
@@ -154,20 +105,9 @@
             <div class="details-grid">
                 <div class="detail-card">
                     <h4>Schedule</h4>
-                    <div class="schedule-item">
-                        <strong>Day 1 - Friday, April 17</strong>
-                        <!-- <p>12:00 PM - 9:30 PM: Opening Night - "Awakening"</p> -->
-                    </div>
-                    <div class="schedule-item">
-                        <strong>Day 2 - Saturday, April 18</strong>
-                        <!-- <p>9:00 AM - 12:00 PM: Morning Session - "Transformation"</p>
-                        <p>3:00 PM - 6:00 PM: Afternoon Session - "Empowerment"</p>
-                        <p>7:00 PM - 10:00 PM: Evening Session - "Celebration"</p> -->
-                    </div>
-                    <div class="schedule-item">
-                        <strong>Day 3 - Sunday, April 19</strong>
-                        <!-- <p>8:00 AM - 1:00 PM: Grand Finale - "Commission"</p> -->
-                    </div>
+                    <div class="schedule-item"><strong>Day 1 - Friday, April 17</strong></div>
+                    <div class="schedule-item"><strong>Day 2 - Saturday, April 18</strong></div>
+                    <div class="schedule-item"><strong>Day 3 - Sunday, April 19</strong></div>
                 </div>
                 <div class="detail-card">
                     <h4>Duration</h4>
@@ -178,25 +118,11 @@
                     <h4>Mode</h4>
                     <p><strong>Hybrid Event</strong></p>
                     <p>In-Person: Grace Convention Center, Lagos</p>
-                    <!-- <p>• Live Stream: Available worldwide</p>
-                    <p>• On-Demand: Recordings available for registered participants</p> -->
                 </div>
-                <!-- <div class="detail-card">
-                    <h4>Special Information</h4>
-                    <ul class="info-list">
-                        <li>✓ Free parking available</li>
-                        <li>✓ Childcare services provided</li>
-                        <li>✓ Interpreter services available</li>
-                        <li>✓ Bookstore & resource center on-site</li>
-                        <li>✓ Meals & refreshments included</li>
-                        <li>✓ Prayer ministry team available</li>
-                    </ul>
-                </div> -->
             </div>
         </div>
     </section>
 
-    <!-- Video Section -->
     <section id="video" class="video-section">
         <div class="container">
             <div class="section-header">
@@ -205,65 +131,25 @@
                 <p>Watch highlights from our previous gatherings</p>
             </div>
             <div class="video-container">
-                <!-- Video can be added here -->
-                <div class="video-placeholder">
-                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                    </svg>
-                    <p>Video Coming Soon</p>
-                    <!-- To add a video, replace the placeholder with:
-                    <iframe width="100%" height="100%" src="YOUR_YOUTUBE_URL" frameborder="0" allowfullscreen></iframe>
-                    -->
-                </div>
+                <video controls>
+                    <source src="../static/video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="gallery-section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">Memories</span>
-                <h2>Previous Gatherings</h2>
-                <p>Moments of worship, joy, and transformation</p>
-            </div>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="/static/images/gallery1.jpg" alt="Worship & Praise">
-                </div>
-                <div class="gallery-item">
-                    <img src="/static/images/gallery2.JPG" alt="Community Fellowship">
-                </div>
-                <div class="gallery-item">
-                    <img src="/static/images/gallery7.jpg" alt="Powerful Teachings">
-                </div>
-                <div class="gallery-item">
-                    <img src="/static/images/gallery4.jpg" alt="Prayer & Ministry">
-                </div>
-                <div class="gallery-item">
-                    <img src="/static/images/gallery5.jpg" alt="Youth Engagement">
-                </div>
-                <div class="gallery-item">
-                    <img src="/static/images/gallery6.jpg" alt="Moments of Glory">
-                </div>
-            </div>
-            <p class="gallery-note">Capturing the powerful moments from our gatherings</p>
-        </div>
-    </section>
-
-    <!-- Call to Action Section -->
     <section class="cta-section">
         <div class="container">
             <div class="cta-content">
                 <h2>Don't Miss This Divine Appointment</h2>
-                <p>Your seat at this life-changing gathering is just one step away. Join thousands who will experience God's presence in a powerful way. Register now and be part of something extraordinary.</p>
+                <p>Your seat at this life-changing gathering is just one step away. Join thousands who will experience God's presence in a powerful way.</p>
                 <a href="https://selar.com/m/thesecret-garden1" class="cta-button cta-button-large" target="_blank">Secure Your Seat</a>
                 <p class="cta-subtext">Limited seats available • Early registration recommended</p>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -274,10 +160,11 @@
                 <div class="footer-col">
                     <h4>Quick Links</h4>
                     <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="leaders.html">Leaders</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
                         <li><a href="https://selar.com/m/thesecret-garden1" target="_blank">Register</a></li>
-                        <li><a href="#gallery">Gallery</a></li>
-                        <li><a href="#about">About</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -289,24 +176,16 @@
                     <h4>Follow Us</h4>
                     <div class="social-icons">
                         <a href="https://facebook.com/divineencounter" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                            </svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                         </a>
                         <a href="https://instagram.com/divineencounter" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
-                            </svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg>
                         </a>
                         <a href="https://twitter.com/divineencounter" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                            </svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
                         </a>
                         <a href="https://youtube.com/@divineencounter" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                            </svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                         </a>
                     </div>
                 </div>
@@ -317,6 +196,6 @@
         </div>
     </footer>
 
-    <script src="/static/js/main.js"></script>
+    <script src="../static/js/main.js"></script>
 </body>
 </html>
