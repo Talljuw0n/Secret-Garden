@@ -10,12 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="icon" href="/static/images/logo.jpeg" type="image/png">
     <style>
-        /* ── Category Cards ── */
-        .gallery-section {
-            padding: 4rem 0 6rem;
-            background: #faf9f7;
-        }
 
+        /* ── Category Cards ── */
         .categories-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -25,12 +21,12 @@
 
         .category-card {
             position: relative;
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
             cursor: pointer;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+            box-shadow: var(--shadow-md);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            background: #1a1a1a;
+            background: var(--primary);
             min-height: 320px;
             display: flex;
             flex-direction: column;
@@ -39,10 +35,10 @@
 
         .category-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 12px 36px rgba(0,0,0,0.18);
+            box-shadow: var(--shadow-lg);
         }
 
-        /* Cover image — swap src per category */
+        /* Cover image */
         .category-cover {
             position: absolute;
             inset: 0;
@@ -58,55 +54,52 @@
             transform: scale(1.04);
         }
 
-        /* Fallback gradient when no cover image yet */
+        /* Fallback when no cover image yet */
         .category-card.no-cover {
-            background: linear-gradient(135deg, #2d1f0e 0%, #6b3f1a 50%, #3d2510 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
         }
 
         .category-card-body {
             position: relative;
             z-index: 2;
             padding: 1.8rem 1.6rem 1.6rem;
-            background: linear-gradient(to top, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.0) 100%);
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.0) 100%);
         }
 
         .category-year {
             display: inline-block;
-            font-family: 'Crimson Pro', serif;
+            font-family: var(--font-body);
             font-size: 0.78rem;
             font-weight: 600;
             letter-spacing: 0.12em;
             text-transform: uppercase;
-            color: #d4a96a;
+            color: var(--accent-light);
             margin-bottom: 0.4rem;
         }
 
         .category-name {
-            font-family: 'Playfair Display', serif;
+            font-family: var(--font-display);
             font-size: 1.45rem;
             font-weight: 700;
-            color: #fff;
+            color: var(--white);
             line-height: 1.25;
             margin: 0 0 0.5rem;
         }
 
-        /* Description slot — hidden by default, shows when you add text */
+        /* Description — hidden until you add text and class "visible" */
         .category-desc {
-            font-family: 'Crimson Pro', serif;
+            font-family: var(--font-body);
             font-size: 0.95rem;
             color: rgba(255,255,255,0.75);
             line-height: 1.5;
             margin: 0 0 1rem;
-            /* Remove the display:none below when you add a description */
             display: none;
         }
 
-        .category-desc.visible {
-            display: block;
-        }
+        .category-desc.visible { display: block; }
 
         .category-count {
-            font-family: 'Crimson Pro', serif;
+            font-family: var(--font-body);
             font-size: 0.85rem;
             color: rgba(255,255,255,0.55);
         }
@@ -116,22 +109,17 @@
             align-items: center;
             gap: 0.4rem;
             margin-top: 0.9rem;
-            font-family: 'Crimson Pro', serif;
+            font-family: var(--font-body);
             font-size: 0.9rem;
             font-weight: 600;
-            color: #d4a96a;
+            color: var(--accent-light);
             letter-spacing: 0.04em;
         }
 
-        .category-arrow svg {
-            transition: transform 0.25s ease;
-        }
+        .category-arrow svg { transition: transform 0.25s ease; }
+        .category-card:hover .category-arrow svg { transform: translateX(4px); }
 
-        .category-card:hover .category-arrow svg {
-            transform: translateX(4px);
-        }
-
-        /* ── Lightbox Overlay ── */
+        /* ── Gallery Overlay ── */
         .gallery-overlay {
             display: none;
             position: fixed;
@@ -140,60 +128,71 @@
             background: rgba(10, 8, 5, 0.96);
             flex-direction: column;
             overflow: hidden;
+            animation: fadeIn 0.3s ease;
         }
 
-        .gallery-overlay.active {
-            display: flex;
-        }
+        .gallery-overlay.active { display: flex; }
 
         .overlay-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 1.2rem 2rem;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
+            padding: 1.4rem 2rem;
+            background: var(--white);
+            border-bottom: 2px solid var(--border);
             flex-shrink: 0;
         }
 
-        .overlay-title-wrap {}
-
         .overlay-year-label {
-            font-family: 'Crimson Pro', serif;
+            display: block;
+            font-family: var(--font-body);
             font-size: 0.75rem;
             font-weight: 600;
             letter-spacing: 0.14em;
             text-transform: uppercase;
-            color: #d4a96a;
+            color: var(--accent);
+            margin-bottom: 0.2rem;
         }
 
         .overlay-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
+            font-family: var(--font-display);
+            font-size: 1.5rem;
             font-weight: 700;
-            color: #fff;
+            color: var(--primary);
             margin: 0;
         }
 
         .overlay-close {
-            background: none;
-            border: none;
-            color: rgba(255,255,255,0.6);
+            background: var(--off-white);
+            border: 2px solid var(--border);
+            color: var(--text-gray);
             cursor: pointer;
-            padding: 0.4rem;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            transition: color 0.2s;
+            justify-content: center;
+            transition: all 0.3s ease;
+            font-size: 1.3rem;
+            flex-shrink: 0;
         }
 
-        .overlay-close:hover { color: #fff; }
+        .overlay-close:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--white);
+            transform: rotate(90deg);
+        }
 
         .overlay-body {
             flex: 1;
             overflow-y: auto;
             padding: 2rem;
+            background: var(--off-white);
         }
 
-        /* Photo grid inside lightbox */
+        /* Photo grid */
         .photo-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -201,15 +200,21 @@
         }
 
         .photo-item {
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden;
             aspect-ratio: 4/3;
-            background: #1e1a15;
+            background: var(--border);
             cursor: zoom-in;
-            transition: transform 0.25s ease;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+            border: 2px solid transparent;
         }
 
-        .photo-item:hover { transform: scale(1.02); }
+        .photo-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent);
+        }
 
         .photo-item img {
             width: 100%;
@@ -220,8 +225,9 @@
 
         /* Empty state */
         .empty-state {
+            grid-column: 1 / -1;
             text-align: center;
-            padding: 4rem 2rem;
+            padding: 5rem 2rem;
         }
 
         .empty-icon {
@@ -230,10 +236,22 @@
             opacity: 0.4;
         }
 
+        .empty-state h3 {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-bottom: 0.6rem;
+        }
+
         .empty-state p {
-            font-family: 'Crimson Pro', serif;
+            font-family: var(--font-body);
             font-size: 1.1rem;
-            color: rgba(255,255,255,0.45);
+            color: var(--text-gray);
+        }
+
+        .empty-state .accent-text {
+            color: var(--accent);
+            font-weight: 600;
         }
 
         /* ── Single photo zoom ── */
@@ -245,6 +263,7 @@
             background: rgba(0,0,0,0.95);
             align-items: center;
             justify-content: center;
+            animation: fadeIn 0.2s ease;
         }
 
         .photo-zoom.active { display: flex; }
@@ -253,43 +272,48 @@
             max-width: 90vw;
             max-height: 88vh;
             object-fit: contain;
-            border-radius: 4px;
+            border-radius: 8px;
         }
 
         .zoom-close {
             position: absolute;
             top: 1.2rem;
             right: 1.5rem;
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 2rem;
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.2);
+            color: var(--white);
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             cursor: pointer;
-            opacity: 0.7;
-            transition: opacity 0.2s;
+            font-size: 1.3rem;
+            transition: all 0.2s ease;
         }
 
-        .zoom-close:hover { opacity: 1; }
+        .zoom-close:hover { background: var(--accent); border-color: var(--accent); }
 
         .zoom-nav {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
             background: rgba(255,255,255,0.08);
-            border: none;
-            color: #fff;
-            width: 44px;
-            height: 44px;
+            border: 2px solid rgba(255,255,255,0.15);
+            color: var(--white);
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             cursor: pointer;
-            font-size: 1.3rem;
+            font-size: 1.6rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: background 0.2s;
+            transition: all 0.2s ease;
         }
 
-        .zoom-nav:hover { background: rgba(255,255,255,0.18); }
+        .zoom-nav:hover { background: var(--accent); border-color: var(--accent); }
         .zoom-prev { left: 1.2rem; }
         .zoom-next { right: 1.2rem; }
 
@@ -298,6 +322,7 @@
             .overlay-header { padding: 1rem 1.2rem; }
             .overlay-body { padding: 1rem; }
             .photo-grid { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
+            .zoom-nav { display: none; }
         }
     </style>
 </head>
@@ -335,32 +360,28 @@
             <div class="section-header">
                 <span class="section-label">Memories</span>
                 <h2>Our Gatherings</h2>
+                <p>Select an event to view its photos</p>
             </div>
 
             <div class="categories-grid">
 
-                <!-- ── CATEGORY 1: Power Night ── -->
-                <!--
-                    TO ADD A COVER IMAGE: replace the .no-cover class with a real image:
-                    <img class="category-cover" src="/static/images/gallery/power-night/cover.jpg" alt="Power Night cover">
-
-                    TO ADD PHOTOS: add entries inside data-photos below.
-                    Format: ["/static/images/gallery/power-night/photo1.jpg", "/static/images/gallery/power-night/photo2.jpg"]
-
-                    TO ADD A DESCRIPTION: add text inside .category-desc and add class "visible" to it.
-                    TO UPDATE PHOTO COUNT: change the number in .category-count.
-                -->
-                <div class="category-card no-cover" onclick="openGallery('power-night')">
-                    
+                <!-- ══════════════════════════════════════════
+                     CATEGORY 1: Power Night
+                     ══════════════════════════════════════════
+                     TO ADD A DESCRIPTION: type inside .category-desc
+                       and add class "visible" to that element.
+                     TO UPDATE PHOTO COUNT: edit .category-count text.
+                     TO ADD PHOTOS: add paths to galleryData in the JS below.
+                ════════════════════════════════════════════ -->
+                <div class="category-card" onclick="openGallery('power-night')">
                     <img class="category-cover" src="/static/images/gallery/power-night/cover.jpeg" alt="Power Night">
-                    
                     <div class="category-card-body">
                         <span class="category-year">2025</span>
                         <h3 class="category-name">Power Night</h3>
                         <p class="category-desc">
-                            <!-- Add your description here, then add class "visible" to this element -->
+                            <!-- Add description here, then add class "visible" to this <p> -->
                         </p>
-                        <span class="category-count">Photos coming soon</span>
+                        <span class="category-count">13 photos</span>
                         <div class="category-arrow">
                             View Photos
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -368,18 +389,18 @@
                     </div>
                 </div>
 
-                <!-- ── CATEGORY 2: Flames Camp Meeting ── -->
-                <div class="category-card no-cover" onclick="openGallery('flames')">
-        
+                <!-- ══════════════════════════════════════════
+                     CATEGORY 2: Flames Camp Meeting
+                ════════════════════════════════════════════ -->
+                <div class="category-card" onclick="openGallery('flames')">
                     <img class="category-cover" src="/static/images/gallery/flames/cover.jpeg" alt="Flames Camp Meeting">
-        
                     <div class="category-card-body">
                         <span class="category-year">2025</span>
                         <h3 class="category-name">Flames Camp Meeting</h3>
                         <p class="category-desc">
-                            <!-- Add your description here, then add class "visible" to this element -->
+                            <!-- Add description here, then add class "visible" to this <p> -->
                         </p>
-                        <span class="category-count">Photos coming soon</span>
+                        <span class="category-count">13 photos</span>
                         <div class="category-arrow">
                             View Photos
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -387,18 +408,18 @@
                     </div>
                 </div>
 
-                <!-- ── CATEGORY 3: TSG Retreat ── -->
-                <div class="category-card no-cover" onclick="openGallery('tsg-retreat')">
-                   
+                <!-- ══════════════════════════════════════════
+                     CATEGORY 3: TSG Retreat
+                ════════════════════════════════════════════ -->
+                <div class="category-card" onclick="openGallery('tsg-retreat')">
                     <img class="category-cover" src="/static/images/gallery/tsg-retreat/cover.jpeg" alt="TSG Retreat">
-                   
                     <div class="category-card-body">
                         <span class="category-year">2025</span>
                         <h3 class="category-name">TSG Retreat</h3>
                         <p class="category-desc">
-                            <!-- Add your description here, then add class "visible" to this element -->
+                            <!-- Add description here, then add class "visible" to this <p> -->
                         </p>
-                        <span class="category-count">Photos coming soon</span>
+                        <span class="category-count">7 photos</span>
                         <div class="category-arrow">
                             View Photos
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -407,17 +428,15 @@
                 </div>
 
                 <!--
-                ═══════════════════════════════════════════════
-                TO ADD A NEW CATEGORY IN THE FUTURE, copy this block and update:
-                - onclick="openGallery('your-category-id')"
-                - The year, name, description, photo count
-                - The cover image src
-                - Add the matching entry in the galleryData object in the JS below
-                ═══════════════════════════════════════════════
+                ══════════════════════════════════════════════════
+                TO ADD A NEW CATEGORY — copy this block and update:
+                - onclick id, cover image src, year, name, photo count
+                - Add matching entry in galleryData in the JS below
 
-                <div class="category-card no-cover" onclick="openGallery('new-event')">
+                <div class="category-card" onclick="openGallery('new-event')">
+                    <img class="category-cover" src="/static/images/gallery/new-event/cover.jpeg" alt="New Event">
                     <div class="category-card-body">
-                        <span class="category-year">2025</span>
+                        <span class="category-year">2026</span>
                         <h3 class="category-name">New Event Name</h3>
                         <p class="category-desc"></p>
                         <span class="category-count">0 photos</span>
@@ -427,22 +446,21 @@
                         </div>
                     </div>
                 </div>
+                ══════════════════════════════════════════════════
                 -->
 
             </div>
         </div>
     </section>
 
-    <!-- ── Gallery Lightbox Overlay ── -->
+    <!-- ── Gallery Overlay ── -->
     <div class="gallery-overlay" id="galleryOverlay">
         <div class="overlay-header">
-            <div class="overlay-title-wrap">
-                <div class="overlay-year-label" id="overlayYear"></div>
+            <div>
+                <span class="overlay-year-label" id="overlayYear"></span>
                 <h2 class="overlay-title" id="overlayTitle"></h2>
             </div>
-            <button class="overlay-close" onclick="closeGallery()" aria-label="Close gallery">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-            </button>
+            <button class="overlay-close" onclick="closeGallery()" aria-label="Close gallery">&#x2715;</button>
         </div>
         <div class="overlay-body">
             <div class="photo-grid" id="photoGrid"></div>
@@ -488,23 +506,17 @@
     <script src="/static/js/main.js" defer></script>
     <script>
     /*
-    ═══════════════════════════════════════════════════════════
-    GALLERY DATA — Add your photos here when you have them.
+    ════════════════════════════════════════════════════════
+    GALLERY DATA
+    Add/remove photo paths here as needed.
+    Each key must match the id used in openGallery() above.
 
-    Each category key must match the id used in openGallery().
-    "photos" is an array of image paths.
-
-    Example when you have photos:
-    'power-night': {
-        title: 'Power Night',
-        year: '2025',
-        photos: [
-            '/static/images/gallery/power-night/photo1.jpg',
-            '/static/images/gallery/power-night/photo2.jpg',
-            '/static/images/gallery/power-night/photo3.jpg',
-        ]
-    }
-    ═══════════════════════════════════════════════════════════
+    Folder structure:
+        /static/images/gallery/
+            power-night/   cover.jpeg + photo1.jpeg … photo13.jpeg
+            flames/        cover.jpeg + photo1.jpeg … photo13.jpeg
+            tsg-retreat/   cover.jpeg + photo1.jpeg … photo7.jpeg
+    ════════════════════════════════════════════════════════
     */
     const galleryData = {
         'power-night': {
@@ -556,20 +568,10 @@
                 '/static/images/gallery/tsg-retreat/photo5.jpeg',
                 '/static/images/gallery/tsg-retreat/photo6.jpeg',
                 '/static/images/gallery/tsg-retreat/photo7.jpeg',
-                '/static/images/gallery/tsg-retreat/photo8.jpeg',
             ]
         }
-        /*
-        Add new categories here when needed:
-        'new-event': {
-            title: 'New Event Name',
-            year: '2026',
-            photos: []
-        }
-        */
     };
 
-    // ── Open gallery overlay ──
     let currentPhotos = [];
     let currentZoomIndex = 0;
 
@@ -577,22 +579,22 @@
         const data = galleryData[categoryId];
         if (!data) return;
 
-        currentPhotos = data.photos;
-
+        currentPhotos = data.photos || [];
         document.getElementById('overlayTitle').textContent = data.title;
         document.getElementById('overlayYear').textContent = data.year;
 
         const grid = document.getElementById('photoGrid');
         grid.innerHTML = '';
 
-        if (!data.photos || data.photos.length === 0) {
+        if (!currentPhotos.length) {
             grid.innerHTML = `
-                <div class="empty-state" style="grid-column:1/-1">
+                <div class="empty-state">
                     <div class="empty-icon">🌿</div>
-                    <p>Photos from <strong style="color:#d4a96a">${data.title}</strong> are coming soon.<br>Check back after the event!</p>
+                    <h3>Coming Soon</h3>
+                    <p>Photos from <span class="accent-text">${data.title}</span> will be added after the event.<br>Check back soon!</p>
                 </div>`;
         } else {
-            data.photos.forEach(function(src, index) {
+            currentPhotos.forEach(function(src, index) {
                 const item = document.createElement('div');
                 item.className = 'photo-item';
                 item.onclick = function() { openZoom(index); };
@@ -614,7 +616,6 @@
         document.body.style.overflow = '';
     }
 
-    // ── Zoom into a single photo ──
     function openZoom(index) {
         if (!currentPhotos.length) return;
         currentZoomIndex = index;
@@ -631,7 +632,6 @@
         document.getElementById('zoomImg').src = currentPhotos[currentZoomIndex];
     }
 
-    // Close on backdrop click
     document.getElementById('galleryOverlay').addEventListener('click', function(e) {
         if (e.target === this) closeGallery();
     });
@@ -640,12 +640,8 @@
         if (e.target === this) closeZoom();
     });
 
-    // Keyboard navigation
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            closeZoom();
-            closeGallery();
-        }
+        if (e.key === 'Escape') { closeZoom(); closeGallery(); }
         if (document.getElementById('photoZoom').classList.contains('active')) {
             if (e.key === 'ArrowLeft') zoomNav(-1);
             if (e.key === 'ArrowRight') zoomNav(1);
