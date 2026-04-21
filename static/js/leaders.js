@@ -80,7 +80,7 @@ const leadersData = {
     10: {
         name: "Jolaade Adesina",
         // title: "Elder",
-        image: "/static/images/leaders/jolaade.jpg",
+        image: "/static/images/leaders/Jolaade.jpg",
         bio: `Jolaade Adesina is a nurse and life coach devoted to helping women experience transformation from the inside out. With a professional foundation in healthcare and almost 10 years on the frontline and managerial front, she has cared for people and led her team in providing quality care to her patients.
         Beyond the clinical space, she is the founder of Live Up Queen, a movement dedicated to helping women break free from performance-based living and step into a life rooted in truth, identity, and full expression. Her work bridges both worlds: the structure and compassion of nursing, and the depth and liberation of identity transformation.
         <p>Jolaade supports women who look like they have it together on the outside but feel disconnected within, guiding them to unlearn limiting beliefs, reconnect with who they truly are, and build lives that feel aligned, powerful, and whole.</p>`
